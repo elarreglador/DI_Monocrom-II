@@ -48,7 +48,7 @@ Así, por ejemplo, la siguiente secuencia:
 113x
 
 Debería crear lo siguiente:
-
+<pre>
 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 x
 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
 0 0 x x 0 0 0 0 0 0 0 0 0 0 0 0
@@ -65,7 +65,7 @@ Debería crear lo siguiente:
 0 0 0 0 0 0 0 0 x x x x x x x x
 0 0 0 0 0 0 0 0 x x x x x x x x
 0 0 0 0 0 0 0 0 x x x x x x x x
-
+</pre>
 Tambien es posible emplear otros caracteres en lugar de una X
 
 ![Imagen](https://github.com/elarreglador/Monocrom-II/blob/main/CAPUTRAS/Primera.png)
