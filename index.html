@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+
+<header>
+    <title id="titulo">MonoCrom!</title>
+    <!-- stylesheets -->
+    <link rel="stylesheet" href="./css/photon.min.css">
+</header>
+
+<body>
+    <div class="window">
+        <header class="toolbar toolbar-header">
+            <button id="btnIniciar" class="btn btn-default">Iniciar</button>
+            <input type="texto" id="orden" placeholder="4321X" style="width: 50%;margin: 4px;">
+            <button id="btnOrden" class="btn btn-default">Orden</button>
+        </header>
+        <div class="window-content">
+            <div class="pane-group">
+                <div class="pane">
+                    <textarea id="resultado" style="width: 100%; height: 100%; overflow: hidden; resize: none;"></textarea>
+                </div>
+            </div>
+        </div>
+
+        <footer class="toolbar toolbar-footer">
+        </footer>
+    </div>
+    <script src="./functions.js"></script>
+</body>
+
+</html>
