@@ -1,4 +1,4 @@
-![Imagen](https://github.com/elarreglador/Cliente-servidor/blob/main/SCREENSHOTS/Social%20preview.png)
+![Imagen](https://github.com/elarreglador/Monocrom-II/blob/main/CAPUTRAS/Social%20preview.png)
 
 
 ************************************
@@ -15,43 +15,69 @@ https://github.com/elarreglador
 ************************************
 ACERCA DE LA APLICACION
 ************************************
-Las clases cliente y servidor se conectan entre si por medio de sockets de este modo:
+El MONOCROM es un monitor monocromo con pantalla cuadrada formada por una
+retícula de 16x16 puntos, cada uno de los cuales se puede poner de color blanco o de
+color negro.
 
-- el cliente recibe como paremetro la ip del servidor (localhost si es la misma maquina), el servidor no recibe parametros
-- El cliente se conecta al servidor, le envia mensajes de texto y muestra los que recibe
-- El servidor acepta la conexion del cliente y muestra por pantalla los mensajes recibidos
-- Se establece un dialogo.
+El monitor dibuja a partir de ciertas órdenes que recibe en forma de secuencia de
+caracteres; los caracteres enviados actúan no sobre toda la pantalla, sino solamente
+sobre un área seleccionada, que puede cambiarse mediante algunos de estos caracteres.
+Inicialmente, el área seleccionada es toda la pantalla, y puede suponerse que todos sus
+puntos son de color blanco. El carácter 'x' sirve para pintar el área seleccionada (es
+decir, poner todos sus puntos de color negro) e, inmediatamente, volver a considerar
+como área seleccionada la pantalla entera.
 
+Finalmente, los caracteres del '1' al '4' sirven para hacer más pequeña el área
+seleccionada, de manera que posteriores caracteres 'x' afecten a menos puntos.
+Concretamente, estos caracteres escogen como nueva área seleccionada uno de los
+cuatro trozos siguientes:
 
-![Imagen](https://github.com/elarreglador/Cliente-servidor/blob/main/SCREENSHOTS/Captura%20de%20pantalla%20de%202023-12-12%2014-20-21.png)
+'1': trozo superior izquierdo
+'2': trozo superior derecho
+'3': trozo inferior derecho
+'4': trozo inferior izquierdo
+
+Nótese, pues, que en realidad MONOCROM sólo permite pintar uno o más cuadrados;
+cualquier figura compleja debe pintarse a trozos, seleccionando y pintando los
+cuadrados adecuados.
+
+Así, por ejemplo, la siguiente secuencia:
+
+2222x
+3x
+113x
+
+Debería crear lo siguiente:
+
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 x
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 x x 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 x x 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 x x x x x x x x
+0 0 0 0 0 0 0 0 x x x x x x x x
+0 0 0 0 0 0 0 0 x x x x x x x x
+0 0 0 0 0 0 0 0 x x x x x x x x
+0 0 0 0 0 0 0 0 x x x x x x x x
+0 0 0 0 0 0 0 0 x x x x x x x x
+0 0 0 0 0 0 0 0 x x x x x x x x
+0 0 0 0 0 0 0 0 x x x x x x x x
+
+Tambien es posible emplear otros caracteres en lugar de una X
+
+![Imagen](https://github.com/elarreglador/Monocrom-II/blob/main/CAPUTRAS/Primera.png)
 
 
 ************************************
 LANZAR LA APP 
 ************************************
 
-Esta aplicacion esta basada en dos aplicaciones diferenciadas de Java: MainServer.java y MainCliente.java
+Esta aplicacion requiere tener electron instalado
 
-Se requiere una compilacion de ambas aplicaciones:
-
-<pre>
-javac Servidor.java
-javac Cliente.java
-</pre>
-
-Y despues por separado ejecutaremos en diferentes terminales el servidor y el cliente
-
-<pre>
-java Servidor
-</pre>
-
-<pre>
-java Cliente
-</pre>
-
-De este modo obtendremos algo similar a esto:
-
-![Imagen](https://github.com/elarreglador/Cliente-servidor/blob/main/SCREENSHOTS/Captura%20de%20pantalla%20de%202023-12-12%2014-21-57.png)
+npm start
 
 
 
